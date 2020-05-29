@@ -1,0 +1,67 @@
+
+public class cal extends AppCompatActivity {
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+
+    }
+
+    public void button(View view) {
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+        pop_menu pop_men = new pop_menu();
+        pop_men.show(fragmentManager,null);
+    }
+------------------------------------------------------------
+package com.example.ham.myapplication;
+
+import android.app.FragmentManager;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import static android.widget.Toast.*;
+
+/**
+ * Created by H.A.M on 12/13/2017.
+ */
+
+public class pop_menu extends android.app.DialogFragment implements View.OnClickListener {
+
+    View view;
+    EditText editText;
+    TextView textView;
+    Button button,cancel;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,  Bundle savedInstanceState) {
+        view=inflater.inflate(R.layout.pop_up_name,container,false);
+         editText =(EditText)view.findViewById(R.id.edit_text);
+        textView =(TextView) view.findViewById(R.id.textxy);
+         button = (Button)view.findViewById(R.id.button);
+        cancel = (Button)view.findViewById(R.id.cancle);
+        button.setOnClickListener(this);
+        cancel.setOnClickListener(this);
+        getDialog().setTitle("mk");
+        return view;
+    }
+    @Override
+    public void onClick(View view) {
+        Button button=(Button)view;
+        if (button.getText().toString().equals("cancle")){
+            this.dismiss();
+
+        }
+        else {
+            textView.setText("OK");
+        }
+    }
+}

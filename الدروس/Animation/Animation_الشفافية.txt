@@ -1,0 +1,24 @@
+
+«·‘›«›Ì…:
+ android:textAlignment="center"
+„‰ resource ‰⁄„· „Ã·œ anim
+Ê„‰ anim ‰⁄„· „·› xml'
+Ê‰⁄„· 
+<alpha
+    android:duration="6000"„œÂ «·ŸÂÊ— 
+    android:fromAlpha="0.0"  «·»œ«ÌÂ 
+    android:toAlpha="1.0"«·«Œ ›«¡
+    />
+TextView T;
+    Animation A;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        T=(TextView)findViewById(R.id.T);
+        A= AnimationUtils.loadAnimation(this,R.anim.fade);
+        T.setAnimation(A);
+
+    }

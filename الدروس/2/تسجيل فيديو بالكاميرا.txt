@@ -1,0 +1,32 @@
+
+* <uses-feature android:name="android.hardware.camera"
+        android:required="true"/>
+VideoView V;
+    int rQ = 1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        V = (VideoView) findViewById(R.id.V);
+    }
+    public void B(View view) {
+
+        Intent I = new Intent((MediaStore.ACTION_VIDEO_CAPTURE));
+        if (I.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(I, rQ);
+        }
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == rQ && resultCode == RESULT_OK) {
+            Uri U = data.getData();
+            V.setVideoURI(U);
+            V.setMediaController(new MediaController(this));
+            V.requestFocus();
+            V.start();
+        }
+
+
+    }

@@ -1,0 +1,69 @@
+
+  TextView Text,toal;
+    EditText E;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        Text=(TextView)findViewById(R.id.Text);
+        toal=(TextView)findViewById(R.id.total);
+        E=(EditText)findViewById(R.id.editText);
+    }
+    public  void  BB(View view)  {
+
+        try {
+            InputStream In = getAssets().open("mkk.txt");
+            InputStreamReader re = new InputStreamReader(In);
+            BufferedReader BU = new BufferedReader(re);
+
+            try {
+                String line;
+                Text.setText("");
+                while ((line = BU.readLine()) != null) {
+                    Text.append(line + "\n");
+                }
+            }catch (IOException
+                    e){
+
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        toal.setText("");
+        }
+    public  void  BS(View view){
+
+        int total = 0;
+        String search = E.getText().toString().trim();
+        String fultxt=Text.getText().toString();
+
+        String []array = fultxt.split(" ");//ÃÌ» «·‰’ «·–Ì ﬁ»·Â «Ê »⁄œÂ ›—«€
+        String word;
+        StringBuilder st = new StringBuilder();
+
+        for (int i = 0 ; i<array.length;i++) {
+            word = array[i];
+
+            if (word.contains(search)) {
+                st.append("<b><font color=\"#FF0000\">" + word.trim() + "</font></b>");
+                total++;
+
+            } else {
+                st.append(word);
+            }
+
+            st.append(" ");
+        }
+        Text.setText(Html.fromHtml(""+st));
+       toal.setText(total+"⁄œœ ﬂ·„«  «·»ÕÀ : ");
+
+    }
+
+
+
+
+}
+

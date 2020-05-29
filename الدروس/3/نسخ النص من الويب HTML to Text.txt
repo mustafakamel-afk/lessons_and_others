@@ -1,0 +1,40 @@
+
+*Œ·Ì textview „Œ›Ì ›Ì «· ’„Ì„
+Œ·Ì «·ÿÊ· Ê«·⁄—÷ Ê«Õœ 
+ WebView W;
+    TextView T;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+
+        T = (TextView) findViewById(R.id.T);
+        W = (WebView) findViewById(R.id.W);
+
+        W.loadUrl("file:///android_asset/1.html");
+
+
+    }
+
+    public void copy(View view) throws IOException {
+
+        try {
+            InputStream In = getAssets().open("1.html");
+            InputStreamReader re = new InputStreamReader(In);
+            BufferedReader BU = new BufferedReader(re);
+            StringBuilder build  = new StringBuilder();
+            String line;
+            while ((line=BU.readLine())!=null){
+                build.append(line);
+
+            }
+            T.setText(Html.fromHtml(build+""));//‰⁄„· Â–Â ⁄·„Êœ Ìﬁ—«¡ «ﬂÊ«œ html
+            ((ClipboardManager)getSystemService(CLIPBOARD_SERVICE)).setText(T.getText().toString());
+            //··‰”Œ
+            Toast.makeText(cal.this," „ «·‰”Œ",Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }

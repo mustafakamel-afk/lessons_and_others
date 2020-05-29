@@ -1,0 +1,71 @@
+
+android:name=".Global"
+ÌÃ» «÷«›Â «”„ ﬂ·«” «·Ã«›« ›Ì «·„«Ì‰ ›Ì”  
+public class Global extends Application {
+
+    private String name;
+    private int Num;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getNum() {
+        return Num;
+    }
+
+    public void setNum(int num) {
+        Num = num;
+    }
+}
+======================================
+ Global G;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        TextView T= (TextView)findViewById(R.id.T);
+        G=(Global)getApplicationContext();
+        String name =G.getName();
+        int n= G.getNum();
+        T.setText(n + " " +name);
+
+    }
+    public  void  B(View view){
+        G.setName("Mustafa");
+        int N=  G.getNum();
+        N++;
+        G.setNum(N);
+        Intent I= new Intent(MainActivity.this,mk.class);
+        startActivity(I);
+    }
+=====================================================================
+ Global G;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        TextView T= (TextView)findViewById(R.id.TT);
+        G=(Global)getApplicationContext();
+
+        String name =G.getName();
+        int n= G.getNum();
+        T.setText(n + " " +name);
+    }
+    public  void  BB(View view){
+
+        G.setName("iraq");
+        int N=  G.getNum();
+        N++;
+        G.setNum(N);
+        Intent I= new Intent(mk.this,MainActivity.class);
+        startActivity(I);
+    }

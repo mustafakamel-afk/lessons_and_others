@@ -1,0 +1,22 @@
+ ListView list = (ListView)findViewById(R.id.list);
+
+        String []item= getResources().getStringArray(R.array.index);
+        ArrayAdapter arrayA = new ArrayAdapter(this,R.layout.activity_textandimage,R.id.T,item);
+
+        list.setAdapter(arrayA);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int p, long l) {
+
+                Intent In = new Intent(MainActivity.this,web_html.class);
+                In.putExtra("page",p);
+                startActivity(In);
+            }
+        });
+
+ WebView web =(WebView)findViewById(R.id.web);
+
+        Intent data = getIntent();
+        int page = data.getExtras().getInt("page");
+        page++;
+        web.loadUrl("file:///android_asset/html/" +page+ ".html");

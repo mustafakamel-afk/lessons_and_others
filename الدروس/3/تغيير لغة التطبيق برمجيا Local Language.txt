@@ -1,0 +1,33 @@
+
+public void B(View view) {
+
+        set_language("en");
+
+    }
+    @SuppressWarnings("deprecation")
+    public  void  set_language(String language){
+        Locale my_locale = new Locale(language);
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        Configuration configuration = getResources().getConfiguration();
+        configuration.locale=my_locale;
+        getResources().updateConfiguration(configuration,displayMetrics);// ÕœÌÀ ·· ÿ»Ìﬁ
+        Intent Refresh = new Intent(this,cal.class);
+        startActivity(Refresh);
+        /*
+        *    "en" = English
+                      "hi" =Hindi
+                    "fr" =French
+                    "it" =Italian
+                  "de" =German
+                    "es" =Spanish
+                   "ja" =Japanese
+                    "ko" =Korean
+                    "nl" =Dutch
+                   "pt" =Portuguese
+                  "ru" =Russian
+                  "zh" =Chinese
+                  "ar" = arabic
+
+                  */
+
+    }

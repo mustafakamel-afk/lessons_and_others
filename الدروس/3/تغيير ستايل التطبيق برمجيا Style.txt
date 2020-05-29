@@ -1,0 +1,36 @@
+
+  SharedPreferences sharedPreferences;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        sharedPreferences=getSharedPreferences("Them", Context.MODE_PRIVATE);
+        int mystyle =sharedPreferences.getInt("mystyle",0);
+        switch (mystyle){
+            case 0:
+                this.setTheme(R.style.AppTheme);
+             break;
+            case 1:
+                this.setTheme(R.style.AppTheme_2);
+                break;
+        }
+        setContentView(R.layout.activity_cal);
+
+
+    }
+
+    public void B(View view) {
+
+        mystyle(1);
+    }
+
+    public  void  mystyle(int S){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("mystyle",S);
+        editor.apply();
+        finish();
+        startActivity(new Intent(this,cal.class));
+    }
+
+    public void B2(View view) {
+        mystyle(0);
+    }

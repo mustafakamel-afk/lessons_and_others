@@ -1,0 +1,34 @@
+
+ <rotate
+        android:duration="5000"
+        android:pivotY="50%"
+        android:pivotX="50%"
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        />
+TextView T;
+    Animation A;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        T=(TextView)findViewById(R.id.T);
+        A= AnimationUtils.loadAnimation(this,R.anim.retate);
+        T.setAnimation(A);
+    }
+«ŒÌ—« ﬂÌ› ‰—»ÿ Ã„Ì⁄ «·Õ—ﬂ«  
+-android:startOffset="6000" › —Â «·« ‰Ÿ«— 
+„À«· 
+ <alpha
+        android:duration="6000"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        />
+    <rotate
+        android:startOffset="6000"
+        android:duration="5000"
+        android:pivotY="50%"
+        android:pivotX="50%"
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        />

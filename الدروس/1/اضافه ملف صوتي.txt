@@ -1,0 +1,10 @@
+final MediaPlayer M= MediaPlayer.create(MainActivity.this,R.raw.music);
+
+        Button B= (Button)findViewById(R.id.B);
+
+        B.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                M.start();
+            }
+        });

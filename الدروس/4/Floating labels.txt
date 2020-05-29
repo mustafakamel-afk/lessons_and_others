@@ -1,0 +1,79 @@
+ÂÊ «÷«›… Œ’«∆’ «÷«›ÌÂ ·· edittext
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:id="@+id/relative"
+    android:orientation="vertical"
+    tools:context=".Main2Activity">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:hint="mk"
+            android:textSize="24dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        android:background="@color/colorAccent"
+        android:onClick="sign_up"
+        android:text="sign up"
+        android:textSize="24dp"
+        android:padding="24dp"
+        tools:ignore="OnClick" />
+
+</RelativeLayout>
+--------------------------------------------------------
+TextInputLayout textInputLayout;
+    EditText editText;
+    RelativeLayout relativeLayout;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+        textInputLayout = (TextInputLayout) findViewById(R.id.textInputLayout);
+        editText = (EditText)findViewById(R.id.editText);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative);
+
+
+    }
+
+
+    public void sign_up(View view) {
+
+        boolean isValid  = true;
+
+        if (!editText.getText().toString().isEmpty()){
+            textInputLayout.setErrorEnabled(false);
+            isValid = true;
+        }
+        else {
+            textInputLayout.setError("please enter your name ");
+            isValid = false;
+        }
+
+        if (isValid){
+            Toast.makeText(getApplicationContext(),"welcome",Toast.LENGTH_LONG).show();
+        }
+
+    }
+

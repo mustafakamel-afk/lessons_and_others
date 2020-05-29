@@ -1,0 +1,17 @@
+
+style ÎÇÕíå ááÓãß ÑÇÆÚå 
+TextView T;
+    Bitmap B;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        T=(TextView)findViewById(R.id.T);
+        B = BitmapFactory.decodeResource(getResources(),R.drawable.liverpool);
+
+        T.getPaint().setShader(new BitmapShader(B, Shader.TileMode.REPEAT,Shader.TileMode.REPEAT));
+        //áÌáÈ áæä ãä æíä -ãä ÇáÊÖáíá shader
+        //Repeat  íÚäí ãÊßÑÑ ÇİŞí æ ÚÇãæÏí
+    }

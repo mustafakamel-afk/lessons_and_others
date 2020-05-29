@@ -1,0 +1,6 @@
+
+  LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.row,(ViewGroup)findViewById(R.id.mk));
+        TextView textView = (TextView)view.findViewById(R.id.textView);
+        ImageView imageView = (ImageView) view.findViewById(R.id.img);
+        textView.setText("welcome with abo alsov");

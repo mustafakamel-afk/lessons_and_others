@@ -1,0 +1,77 @@
+
+ <item android:id="@+id/search"
+        android:title="search"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_search_black_24dp"
+        app:actionViewClass="android.support.v7.widget.SearchView"/>
+-----------------------------------------------------------------
+public class cal extends AppCompatActivity implements SearchView.OnQueryTextListener {
+    ArrayList<String> aray = new ArrayList<>();
+    ArrayList<String> list_index = new ArrayList<>();
+    ListView list;
+    ArrayAdapter<String> Ad;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+        list=(ListView)findViewById(R.id.lis);
+
+        String[] names ={"mk","Ali","Ahmed","Ans"};
+
+        for (String name:names) {
+            list_index.add(name);
+        }
+
+        Names();
+
+
+    }
+    public  void  Names(){
+        Ad = new ArrayAdapter(this,android.R.layout.simple_list_item_1,list_index);
+        list.setAdapter(Ad);
+    }
+
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {//Ýí ÍÇáå ÇáÖÛØ Úáì ÇáÈÍË
+        search(query);
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {//íÔÈå Auto complete
+        search(newText);
+        return false;
+    }
+
+    public  void  search(String word){
+        if (word.length()>1) {
+            aray.clear();
+            for (int i = 0; i < list_index.size(); i++) {
+                String name = list_index.get(i);
+                if (name.contains(word)) {
+                    aray.add(name);
+                }
+
+            }
+            Ad = new ArrayAdapter(this, android.R.layout.simple_list_item_1, aray);
+            list.setAdapter(Ad);
+        }
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menii, menu);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.search));
+        searchView.setOnQueryTextListener(this);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        return super.onOptionsItemSelected(item);
+    }

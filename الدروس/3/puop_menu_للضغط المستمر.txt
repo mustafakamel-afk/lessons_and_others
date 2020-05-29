@@ -1,0 +1,34 @@
+
+ @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+
+        if (List_Type.equals("Favorite")){
+            menu.add("Õ–› «·ﬁ’Â „‰ «·„›÷·Â");
+        }
+
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        super.onContextItemSelected(item);
+
+        if(item.getTitle()=="Õ–› «·ﬁ’Â „‰ «·„›÷·Â"){
+            int  id  = List_Favorite.get(I1).getId();
+            String id2 = String.valueOf(id);
+            db.Delete(id2);
+            Toast T = Toast.makeText(this," „ «·Õ–›",Toast.LENGTH_SHORT);
+            View V =T.getView();
+            V.setBackgroundColor(Color.parseColor("#00e676"));
+            T.show();
+            favv();
+            if(List_Favorite.size()==0){
+                line.setVisibility(GONE);
+                Intent I = new Intent(the_stories.this,favorite.class);
+                startActivity(I);
+                finish();
+            }
+
+        }
+        return true;
+    }

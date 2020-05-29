@@ -1,0 +1,14 @@
+
+    public void  B4(View view){
+try {
+    Intent I = new Intent(Intent.ACTION_SEND);
+    I.setData(Uri.parse("mailto:"));//áÚÑÖ ÇáÊØÈíŞÇÊ ÇáÎÇÕå ÈÇáÈÑíÏ İí Çáchooser
+    I.setType("message/rfc822");
+    I.putExtra(Intent.EXTRA_EMAIL, "mustafa2000676@gmail.com");
+    I.putExtra(Intent.EXTRA_SUBJECT, "ÚäæÇä ÇáÑÓÇáå");
+    I.putExtra(Intent.EXTRA_TEXT, "ãæÖæÚ ÇáÑÓÇáå");
+    startActivity(I);
+}catch (Exception e){
+
+    Toast.makeText(this,"ÚĞÑÇ áÇ íæÌÏ ÊØÈíŞ ÈÑíÏ",Toast.LENGTH_SHORT).show();
+}

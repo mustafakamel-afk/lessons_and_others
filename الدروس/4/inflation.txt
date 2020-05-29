@@ -1,0 +1,12 @@
+Úדבםֹ Êֽזםב דבÝ xml ַבל ßֶַה דה הזÚ ַּÝַ 
+בבÊÚַדב דÚ ַבדבÝ Úה ״ׁםÞ ַבßזֿ 
+
+  //ßבַ׃ LayoutInflater הזÚו ַָ׃ÊׁßÊ םÚהם דַהßֿׁ ההװֶ ßֶַה דהו דַָװֹׁ Ýוהַבß ״ׁÞ ־ַױו בßם ההװֶ דהו ßֶַה בהױב ַבַֿבו inflate()
+        //LayoutInflater layoutInflater = getLayoutInflater(); //ַב״ׁםÞו ַבַזבל
+        //LayoutInflater layoutInflater1 = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);//ַב״ׁםÞו ַבַֻהםו
+        //LayoutInflater.from(this).inflate();//ַב״ׁםÞו ַבַֻבֻו
+
+        LayoutInflater layoutInflater = getLayoutInflater();
+
+         View view = layoutInflater.inflate(R.layout.text_view,null); //ַבַָׁדםÊׁ ַבַֻהם הײÚ ַבַָ ַב׀ם ׃םֽÊזם ו׀ו ַבדבÝ text_view
+        //Ýם ַב־״זֹ ַÚבַו ֽזבהַ דבÝ xml ַבל ßֶַה דה הזÚ View

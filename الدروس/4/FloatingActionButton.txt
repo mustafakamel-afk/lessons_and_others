@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    tools:context=".Main2Activity">
+
+
+    <GridView
+        android:id="@+id/grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="auto_fit"
+        android:columnWidth="120dp"
+        ></GridView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floating_action_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/ic_add_black_24dp"
+        app:fabSize="normal"
+        />
+
+</android.support.design.widget.CoordinatorLayout>
+-------------------------------------------------------------------
+ floatingActionButton = (FloatingActionButton) findViewById(R.id.floating_action_bar);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"mk",Toast.LENGTH_LONG).show();
+            }
+        });

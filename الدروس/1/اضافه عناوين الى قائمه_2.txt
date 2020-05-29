@@ -1,0 +1,30 @@
+
+   ListView list = (ListView) findViewById(R.id.list);
+
+        String item []=new String[12];
+        try{
+            InputStream in = getAssets().open("mkk.txt");
+
+            InputStreamReader read = new InputStreamReader(in);//Ìÿ·» «·—»ÿ «·Œ«’ »·› «·‰’
+
+            BufferedReader br =new BufferedReader(read);//Ìﬁ—«¡… InputStreamReader «·–Ì ›ÌÂ «·—«»ÿ
+            try{
+                String line;
+                int id=0;
+
+
+                while ((line=br.readLine())!=null){//ﬂ—— »Õ«·Â ⁄œ„ «·›—«€
+
+                  item[id]=line;
+                    id++;
+                }
+            }
+            catch (IOException ee){}
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+
+        }
+        ListAdapter Ad =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,item);
+        list.setAdapter(Ad);

@@ -1,0 +1,12 @@
+
+public  void  B2(View view){
+
+        String number_of_Phone="07705830069";
+        Intent I = new Intent(Intent.ACTION_DIAL);
+        I.setData(Uri.parse("tel:"+number_of_Phone));
+        if(I.resolveActivity(getPackageManager())!=null){
+            startActivity(I);
+        }
+
+
+    }

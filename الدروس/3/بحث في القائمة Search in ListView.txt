@@ -1,0 +1,54 @@
+
+   TextView total;
+    EditText E;
+    Button btn_search;
+    ListView list;
+    ArrayList Alist = new ArrayList();
+    ArrayList list_search = new ArrayList();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+        total=(TextView)findViewById(R.id.total);
+         btn_search=(Button) findViewById(R.id.btn_search);
+        E=(EditText)findViewById(R.id.editText);
+        list=(ListView)findViewById(R.id.list);
+
+    }
+    public  void  BB(View view) throws IOException {
+        Alist.clear();
+
+        try {
+            InputStream in = getAssets().open("mkk.txt");
+            InputStreamReader Inst = new InputStreamReader(in);
+            BufferedReader BU = new BufferedReader(Inst);
+
+            String line;
+            while ((line = BU.readLine()) != null) {
+                Alist.add(line);
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+        ArrayAdapter Ad = new ArrayAdapter(this,android.R.layout.simple_list_item_1,Alist);
+        list.setAdapter(Ad);
+        total.setText(Alist.size()+"„Ã„Ê⁄ «·⁄‰Ê«Ì‰ :");
+
+    }
+    public  void BS(View view ){
+
+        list_search.clear();
+        String search =E.getText().toString().trim();
+
+        for (int i=0;i<Alist.size();i++){
+            String item = Alist.get(i).toString();
+            if(item.contains(search)){
+                list_search.add(item);
+            }
+        }
+        ArrayAdapter Ad = new ArrayAdapter(this,android.R.layout.simple_list_item_1,list_search);
+        list.setAdapter(Ad);
+        total.setText(list_search.size()+"„Ã„Ê⁄ «·⁄‰Ê«Ì‰ :");
+
+    }

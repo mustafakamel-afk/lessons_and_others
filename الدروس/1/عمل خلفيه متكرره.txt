@@ -1,0 +1,13 @@
+
+вб Чэуф ксь уЬсЯ Чсецб -> кус усн Чпг Чу Чс 
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/Чгу Чсецбх ЧсубЧЯ ЪпбЧбх "
+    android:tileMode="repeat"
+    
+    >
+
+</bitmap>
+цуф Ыу фЮЪЧб ЧсуЬсЯ кф ибэо ШЧпбЧцфЯ 
+цуф Ыу фкус sync
+*ЧЮЪЧб Чсецбх 

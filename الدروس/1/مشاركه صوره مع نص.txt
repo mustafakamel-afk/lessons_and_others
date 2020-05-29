@@ -1,0 +1,15 @@
+
+public void B(View view){
+
+        Intent I = new Intent(Intent.ACTION_SEND);
+        I.setType("image/*");
+        Uri U = Uri.parse("android.resource://"+getPackageName()+"/drawable/"+R.drawable.mk);
+        I.putExtra(Intent.EXTRA_STREAM,U);
+        I.putExtra(Intent.EXTRA_TEXT,"„‘«—ﬂÂ ’Ê—Â „⁄  ÿ»Ìﬁ");
+        Intent cho = Intent.createChooser(I,"„‘«—ﬂÂ ’Ê—Â");
+        if(I.resolveActivity(getPackageManager())!=null){
+            startActivity(I);
+        }
+*  Intent I = new Intent(Intent.ACTION_SEND);
+        I.setType("image/*");
+·«—”«· ‘∆ „⁄Ì‰ ’Ê—Â «Ê ‰’ «·Œ....

@@ -1,0 +1,42 @@
+
+  public void  B4(View view){
+
+        Intent I = new Intent(this,photo.class);
+        startActivity(I);
+    }
+--------------------------------------------------
+ImageView I;
+    Uri U;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_photo);
+        I=(ImageView)findViewById(R.id.I);
+    }
+    public  void  G(View view){
+
+        Intent i =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i,100);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==100&&resultCode==RESULT_OK){
+            Uri U = data.getData(); // Õ›Ÿ «·»Ì«‰«  ›Ì data Ê‰Õ‰ ‰Ã⁄·Â« ›Ì uri
+            I.setImageURI(U);
+        }
+    }
+    public  void  SH(View view){
+        Intent I = new Intent(Intent.ACTION_SEND);
+        I.setType("image/*");
+        I.putExtra(Intent.EXTRA_STREAM,U);//stream Ì⁄‰Ì «÷«›Â „—›ﬁ „⁄ intent
+        I.putExtra(Intent.EXTRA_TEXT,"„‘«—ﬂÂ ’Ê—Â „⁄  ÿ»Ìﬁ");
+        Intent cho = Intent.createChooser(I,"„‘«—ﬂÂ ’Ê—Â");// Œ «— «·„” ⁄—÷ ·⁄—÷ «·’Ê—Â „À«· „—Â Ê«ÕœÂ ›ﬁÿ
+        if(I.resolveActivity(getPackageManager())!=null){
+            startActivity(cho);
+        }
+
+
+    }

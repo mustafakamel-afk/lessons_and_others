@@ -1,0 +1,17 @@
+
+ public void B(View view){
+        NotificationManager num = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        Bitmap B = BitmapFactory.decodeResource(this.getResources(),R.drawable.mk);
+        NotificationCompat.Builder bb =new NotificationCompat.Builder(this);
+        bb.setContentTitle("⁄‰Ê«‰ «·—”«·Â");
+        bb.setContentText("‰’ Ê „Ê÷Ê⁄ «·—”«·Â");
+        bb.setSmallIcon(R.drawable.mk);
+        bb.setLargeIcon(B);
+        bb.setAutoCancel(true);
+        bb.setNumber(1);
+        //Â–« «·—ﬁ„ „Â„ ›ÂÊ Ì„À· —ﬁ„ bulider Ê„‰ À„ ‰” œ⁄ÌÂ ›ﬂ· «‘⁄«— ·Â —ﬁ„ Œ«’ »Â 
+        bb.setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE);
+        bb.setVibrate(new long[]{500,1000,500,1000,500});//··«Â “«“ 1000=À«‰ÌÂ
+        bb.setSound(Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.m));
+        num.notify(1,bb.build()); //—»ÿ bulder » notify
+    }

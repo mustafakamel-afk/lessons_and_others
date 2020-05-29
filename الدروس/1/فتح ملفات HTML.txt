@@ -1,0 +1,26 @@
+int i;
+    WebView web;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+       web  = (WebView)findViewById(R.id.W);
+        web.loadUrl("file:///android_asset/1.html");
+    }
+
+    public void  N(View view){
+
+        if(i <2)
+            i++;
+        web.loadUrl("file:///android_asset/"+i+".html");
+    }
+    public void  BB(View view){
+
+        if(i>1)
+            i--;
+        web.loadUrl("file:///android_asset/"+i+".html");
+
+    }
+webview.getSettings().setTextZoom(110);

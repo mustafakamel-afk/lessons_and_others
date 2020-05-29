@@ -1,0 +1,8 @@
+
+ public  void  A(View view){
+
+        Intent I =new Intent(Intent.ACTION_SEND);
+        I.putExtra(Intent.EXTRA_TEXT,"MK");
+        I.setType("text/plain");
+        startActivity(Intent.createChooser(I,"SEND the Text"Çæ ããßä æÖÚ äÕ ãä ÇáæÇÌå Úä ØÑíŞ id ));
+    }

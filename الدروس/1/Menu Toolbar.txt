@@ -1,0 +1,28 @@
+
+⁄„· „Ã·œ menu „‰ resource
+Ê‰÷Ì› „·› xml ›Ì menu »«·÷€ÿ ⁄·ÌÂ »«·“— ·«Ì„‰ 
+  Ê‰÷Ì›xmlns:app="http://schemas.android.com/apk/res-auto"
+ﬁÌ«” «·«ÌﬁÊ‰Â 48px
+   <item android:title="HOME"
+        android:icon="@drawable/m"
+        app:showAsAction="always"
+        android:id="@+id/H"
+        >
+</item>
+--------
+   }
+@Override
+    public boolean onCreateOptionsMenu(Menu menu){
+
+        getMenuInflater().inflate(R.menu.menu,menu);//·Ã·» «·ﬁ«∆„Â
+        return  true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id=item.getItemId();//·Ã·» id ·ﬂ· «ÌﬁÊ‰Â
+
+        if(id==R.id.H){
+            Toast.makeText(this,"OK",Toast.LENGTH_SHORT).show();
+        }
+        return super.onOptionsItemSelected(item);
+    }

@@ -1,0 +1,9 @@
+
+*<uses-permission android:name="android.permission.INTERNET"/>
+ public  void  B(View view){
+        Intent I = new Intent(Intent.ACTION_VIEW);//··«‰ ﬁ«· «·Ï «·—Ê«»ÿ
+        I.setData(Uri.parse("https://try.kotlinlang.org/#/Examples/Hello,%20world!/Simplest%20version/Simplest%20version.kt"));
+       if(I.resolveActivity(getPackageManager())!=null) {//·«“„ «·ﬂÊœ Â–«
+           startActivity(I);
+       }
+    }

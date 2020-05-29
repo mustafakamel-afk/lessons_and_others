@@ -1,0 +1,22 @@
+
+RatingBar ratingBar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+        final Context context=this;
+        ratingBar=(RatingBar)findViewById(R.id.ratingBar);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean b) {//rating וז ַבדוד
+
+                Toast.makeText(context,Float.toString(rating),Toast.LENGTH_LONG).show();
+            }
+        });
+
+    }
+
+    public void rating(View view) {
+        Toast.makeText(this,Float.toString(ratingBar.getRating()),Toast.LENGTH_LONG).show();
+    }
+}

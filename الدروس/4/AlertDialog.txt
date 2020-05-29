@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="150dp"
+    android:textSize="36sp"
+    android:text="Delete"
+    android:id="@+id/delete"
+    android:padding="10dp"
+    android:layout_margin="30dp"
+    android:layout_gravity="center"
+    android:textColor="@color/white"
+    android:background="@drawable/meassage_frame"
+    android:fontFamily="sans-serif-smallcaps"
+    android:textAllCaps="false"
+    android:layout_height="60dp">
+
+</Button>
+=======================================================
+ AlertDialog.Builder alertbuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View view =  inflater.inflate(R.layout.alert,null);
+         alertbuilder.setView(view);
+         alertbuilder.setTitle("liverpool");
+        //Â–« «·«ﬂÊ«œ ÂÌ ·»‰«¡ «·’‰œÊﬁ Ê „Õ ÊÌ« Â
+
+
+         final AlertDialog alertDialog =  alertbuilder.create();
+         alertDialog.show();
+        //Â–« «·”ÿ—Ì‰ ·⁄—÷ «·»‰«¡ «·–Ì ﬁ„‰« »Â
+
+        Button delete = (Button) view.findViewById(R.id.delete);
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(),"Ì« —» «·”«œ”Â",Toast.LENGTH_LONG).show();
+                
+                alertDialog.dismiss();
+            }
+        });

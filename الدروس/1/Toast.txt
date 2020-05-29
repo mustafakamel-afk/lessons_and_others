@@ -1,0 +1,28 @@
+public void  B(View view){
+
+        String hello="Hello";
+       Toast T= Toast.makeText(this,hello,Toast.LENGTH_LONG);
+        View V = T.getView();
+        V.setBackgroundColor(Color.parseColor("FFC5001E"));
+        T.setGravity(Gravity.CENTER,0,0);
+        T.show();
+
+
+    }
+================================================
+
+‰’„„ «·’Ê—Â Ê ‰÷⁄Â« layout ›Ì
+ public  void  B(View view){
+
+        Toast T = new Toast(this);
+        T.setDuration(Toast.LENGTH_LONG);
+        T.setGravity(Gravity.CENTER,0,0);
+        LayoutInflater l = getLayoutInflater();
+        View V = l.inflate(R.layout.activity_main,(ViewGroup)findViewById(R.id.Line));
+        TextView TT = (TextView)V.findViewById(R.id.textView);
+        TT.setText("Hello");
+        T.setView(V);
+        T.show();
+
+
+    }

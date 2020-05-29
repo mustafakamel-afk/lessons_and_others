@@ -1,0 +1,21 @@
+style:
+
+<style name="HeaderTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+theme:
+ <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#009688</item>
+        <item name="colorPrimaryDark">#00796B</item>
+        <item name="colorAccent">#536DFE</item>
+        <item name="checkboxStyle">@color/colorPrimary</item>
+        <item name="radioButtonStyle">@color/colorAccent</item>
+Â‰«·ﬂ «·ﬂÀÌ— „‰ «·Œ’«∆’
+    </style>
+„‰ «·«‰  ” ÿÌ⁄ «· Õﬂ„ »·Ê‰ checkBox Ê seekbar 

@@ -1,0 +1,17 @@
+
+  ListView L = (ListView)findViewById(R.id.L);
+        String []item=getResources().getStringArray(R.array.index);
+
+        ListAdapter ad = new ArrayAdapter<String>(this,android.R.layout.simple_list_item(ããßä ÑÈØå ÈæÇÌå ãËá ÇáãÔÑæÚ)_1,item);
+
+        L.setAdapter(ad);
+ãä åäÇ 
+ <string-array name="index">
+
+        <item>ali</item>
+        <item>MK</item>
+        <item>header</item>
+        <item>mohamed</item>
+        <item>hussien</item>
+        <item>mahdy</item>
+    </string-array>

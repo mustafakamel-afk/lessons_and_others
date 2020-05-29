@@ -1,0 +1,57 @@
+
+Activity activity;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+        activity=this;
+
+
+    }
+
+
+
+    ProgressDialog progressDialog;
+    public void runn(View view) {
+        my_thred my_thre = new my_thred();
+
+        progressDialog=new ProgressDialog(cal.this);
+        progressDialog.setTitle("Ã«—Ì «· Õ„Ì·");
+        progressDialog.setMessage(" —Ï Ã«—Ì «· Õ„Ì· ");
+        progressDialog.setProgressStyle(progressDialog.STYLE_HORIZONTAL);
+        progressDialog.setProgress(0);
+        progressDialog.setMax(20);
+        progressDialog.show();
+        my_thre.start();
+
+
+    }
+
+    class  my_thred extends Thread{
+        public  void  run(){
+            while (progressDialog.getProgress()<20){//«·ﬁÌ„Â «·Õ«·ÌÂ
+
+                activity.runOnUiThread(new Runnable() {//··Ê’Ê· «·Ï «·«ﬂ › Ì
+                    @Override
+                    public void run() {
+                        progressDialog.incrementProgressBy(1);//Ì⁄‰Ì “Ìœ »Ê«Õœ
+
+
+                    }
+                });
+                try {
+                    Thread.sleep(1000);
+
+                }catch (Exception e){
+
+                }
+            }
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    progressDialog.dismiss();//»⁄œ „« ÌÊ’· ··Õœ «·‰Â«∆Ì ‰Êﬁ›Â 
+                }
+            });
+        }
+
+    }

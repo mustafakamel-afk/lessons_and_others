@@ -1,0 +1,21 @@
+ImageView img;
+    int n =0;
+
+    int [] bird = new int[]{R.drawable.RobinR_A,R.drawable.images};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        img = (ImageView)findViewById(R.id.I);
+    }
+    public void N(View view) {
+        img.setImageResource(bird[n]);
+        if(n<1)
+            n++;
+    }
+
+    public void B(View view) {
+        img.setImageResource(bird[n]);
+        if(n>0)
+            n--;

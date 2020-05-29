@@ -1,0 +1,35 @@
+
+hd= 1080*1920
+‰Õœœ ’Ê—Â «·„” ⁄—÷ „‰ »—‰«„Ã «·›Ê Ê‘Ê»
+Ã«›«:
+ ImageView I;
+    int numB=0;
+    int birdphoto[]={R.drawable.bird,R.drawable.bird2,R.drawable.bird3};
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        I=(ImageView)findViewById(R.id.imageView);
+    }
+    public  void B(View view){
+        WallpaperManager W = WallpaperManager.getInstance(getBaseContext());
+        try {
+            W.setResource(birdphoto[numB]);
+            Toast.makeText(getBaseContext(),"DONE",Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public  void  I(View view){
+
+        if(numB<2){
+            numB++;
+            I.setImageResource(birdphoto[numB]);
+        }
+        else{
+            numB=0;
+        }
+
+
+    }
+*<uses-permission android:name="android.permission.SET_WALLPAPER"/>

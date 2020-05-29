@@ -1,0 +1,172 @@
+
+1==
+Activity activity;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+        activity=this;
+
+
+    }
+
+
+    public void messagee(View view) {
+
+        Toast.makeText(cal.this,"message while thred work",Toast.LENGTH_LONG).show();
+    }
+
+    public void stopp(View view) {
+
+        my_thred my_thr = new my_thred();
+        my_thred2 my_thr2 = new my_thred2();
+        my_thr.stop();
+        my_thr2.stop();
+    }
+
+    public void runn(View view) {
+        my_thred my_thr = new my_thred();
+        my_thred2 my_thr2 = new my_thred2();
+        my_thr.start();
+        my_thr2.start();
+
+    }
+
+    class  my_thred extends Thread{
+
+        int x=0;
+        final TextView textView = (TextView)findViewById(R.id.textView_1);
+        public  void  run(){
+            while (true){
+
+                activity.runOnUiThread(new Runnable() {//··Ê’Ê· «·Ï «·«ﬂ › Ì
+                    @Override
+                    public void run() {
+
+                        textView.setText(String.valueOf(x));
+
+                    }
+                });
+                x++;
+                try {
+                    Thread.sleep(1000);
+
+                }catch (Exception e){
+
+                }
+            }
+        }
+
+    }
+    class  my_thred2 extends Thread{
+
+        int x=100;
+        final TextView textView2 = (TextView)findViewById(R.id.textView_2);
+        public  void  run(){
+            while (true){
+
+                activity.runOnUiThread(new Runnable() {//··Ê’Ê· «·Ï «·«ﬂ › Ì
+                    @Override
+                    public void run() {
+
+                        textView2.setText(String.valueOf(x));
+
+                    }
+                });
+                x++;
+                try {
+                    Thread.sleep(1000);
+
+                }catch (Exception e){
+
+                }
+            }
+        }
+
+    }
+2==
+Activity activity;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+        activity=this;
+
+
+    }
+
+static  boolean runer = true;
+  static   int x=0;
+
+    public void messagee(View view) {
+
+        Toast.makeText(cal.this,"message while thred work",Toast.LENGTH_LONG).show();
+    }
+
+    public void stopp(View view) {
+
+       runer=false;
+    }
+
+    public void runn(View view) {
+        TextView textView =(TextView) findViewById(R.id.textView_1);
+        my_thred my_thr = new my_thred();
+        my_thr.start();
+        try {
+            my_thr.join();//ﬂ√‰Â ÌﬁÊ· Êﬁ› «·»—‰«„Ã ·Õœ „« ÌÊ’· «· x = 5
+        }catch (Exception e){
+            textView.setText(String.valueOf(x));
+        }
+
+    }
+
+    class  my_thred extends Thread{
+        final TextView textView = (TextView)findViewById(R.id.textView_1);
+        public  void  run(){
+            while (x <5){
+
+                activity.runOnUiThread(new Runnable() {//··Ê’Ê· «·Ï «·«ﬂ › Ì
+                    @Override
+                    public void run() {
+
+                        textView.setText(String.valueOf(x));
+
+                    }
+                });
+                x++;
+                try {
+                    Thread.sleep(1000);
+
+                }catch (Exception e){
+
+                }
+            }
+        }
+
+    }
+    class  my_thred2 extends Thread{
+
+        int x=100;
+        final TextView textView2 = (TextView)findViewById(R.id.textView_2);
+        public  void  run(){
+            while (runer){
+
+                activity.runOnUiThread(new Runnable() {//··Ê’Ê· «·Ï «·«ﬂ › Ì
+                    @Override
+                    public void run() {
+
+                        textView2.setText(String.valueOf(x));
+
+                    }
+                });
+                x++;
+                try {
+                    Thread.sleep(1000);
+
+                }catch (Exception e){
+
+                }
+            }
+        }
+
+    }

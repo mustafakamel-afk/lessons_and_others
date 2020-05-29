@@ -1,0 +1,133 @@
+
+Activity activity;
+    EditText editText;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+        editText=(EditText) findViewById(R.id.edit);
+        activity=this;
+
+
+    }
+
+
+
+    ProgressDialog progressDialog;
+    public void runn(View view) {
+        progressDialog=new ProgressDialog(cal.this);
+        progressDialog.setTitle("Ã«—Ì «· Õ„Ì·");
+        progressDialog.setMessage(" —Ï Ã«—Ì «· Õ„Ì· ");
+        progressDialog.setProgressStyle(progressDialog.STYLE_HORIZONTAL);
+        progressDialog.setProgress(0);
+        progressDialog.setMax(20);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(true);
+        progressDialog.show();
+        final dwon_load dwon_loa = new dwon_load(cal.this);
+        editText=(EditText) findViewById(R.id.edit);
+        dwon_loa.execute(editText.getText().toString());
+        progressDialog.setOnCancelListener(new DialogInterface.OnCancelListener()   {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                dwon_loa.cancel(true);
+            }
+        });
+    }
+    private  class  dwon_load extends AsyncTask<String,Integer,String>{
+
+        private  Context context;
+        private PowerManager.WakeLock wakeLock;
+        public  dwon_load(Context context){
+            this.context=context;
+        }
+        @Override
+        protected String doInBackground(String... sUrl) {
+
+            InputStream input = null;//Ã·» «·»Ì«‰« 
+            OutputStream output = null;//Œ“‰Â« ›Ì «·Â« ›
+            HttpURLConnection connection = null;
+            try {
+                URL url = new URL(sUrl[0]);
+                connection = (HttpURLConnection) url.openConnection();//«Œ“‰ «·—«»ÿ Ê«› ÕÂ ›Ì http
+                connection.connect();//« ’·
+
+                if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {//«–« «·—«»ÿ €Ì— „ÊÃÊœ Ì—”· —”«·Â «⁄ –«—
+                    return "Server returned HTTP " + connection.getResponseCode()
+                            + " " + connection.getResponseMessage();
+                }
+
+                int fileLength = connection.getContentLength();//ÿÊ· «·„·› «·„—«œ  Õ„Ì·Â ›Ì Â–« «·—«»ÿ
+// get file name;
+                String[] filen=sUrl[0].split("/");
+                // download the file
+                input = connection.getInputStream();
+                output = new FileOutputStream("/sdcard/Downlaod_" + filen[filen.length-1]);
+
+                byte data[] = new byte[4096];
+                long total = 0;
+                int count;
+                while ((count = input.read(data)) != -1) {
+
+                    if (isCancelled()) {
+                        input.close();
+                        return null;
+                    }
+                    total += count;
+
+                    if (fileLength > 0) // only if total length is known
+                        publishProgress((int) (total * 100 / fileLength));
+                    output.write(data, 0, count);
+                }
+            } catch (Exception e) {
+                return e.toString();
+            } finally {
+                try {
+                    if (output != null)
+                        output.close();
+                    if (input != null)
+                        input.close();
+                } catch (IOException ignored) {
+                }
+
+                if (connection != null)
+                    connection.disconnect();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            PowerManager powerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
+            wakeLock=powerManager.newWakeLock(powerManager.PARTIAL_WAKE_LOCK,getClass().getName());
+            wakeLock.acquire();//«„‰⁄Â „‰ «‰ Ìÿ›Ì Œ·«· «· ‰“Ì·
+            progressDialog.show();
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            // if we get here, length is known, now set indeterminate to false
+            progressDialog.setIndeterminate(false);
+            progressDialog.setMax(100);
+            progressDialog.setProgress(values[0]);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            wakeLock.release();
+            progressDialog.dismiss();
+            if (s != null)
+                Toast.makeText(context,"Download error: "+s, Toast.LENGTH_LONG).show();
+            else
+                Toast.makeText(context,"File downloaded", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+
+
+ 

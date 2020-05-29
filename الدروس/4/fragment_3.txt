@@ -1,0 +1,91 @@
+
+public class MainActivity extends AppCompatActivity {
+
+    myfragment myfrag = new myfragment();
+    myfragment_2 myfrag_2 = new myfragment_2();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        ViewPager viewPager = (ViewPager) findViewById(R.id.my_view_pager);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        myAdapter myAdapter = new myAdapter(fragmentManager);
+
+        viewPager.setAdapter(myAdapter);
+
+    }
+
+}
+
+class myAdapter extends FragmentPagerAdapter {
+
+    public myAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        Fragment fragment = null;
+        if (position == 0){
+            fragment = new myfragment();
+        }
+        else if (position == 1){
+            fragment = new myfragment_2();
+        }
+        return fragment;
+    }
+
+    @Override
+    public int getCount() {// «·œ«·Â Â–Â  ﬁÊ„ »√⁄«œ… ⁄œœ «· taps
+        return 2;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        String title = null;
+
+        if (position == 0){
+            title = "salah";
+        }
+        else if (position == 1){
+            title = "mane";
+        }
+
+        return title;
+
+    }
+}
+----------------------------------------------
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/my_view_pager"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.v4.view.PagerTitleStrip
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/PagerTitleStrip"
+        android:background="@color/colorPrimary"
+        android:textColor="#fff"
+        android:textSize="24dp"
+        android:scrollbarSize="10dp"
+        android:layout_gravity="top"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:padding="20dp">
+
+
+    </android.support.v4.view.PagerTitleStrip>
+
+
+
+
+
+</android.support.v4.view.ViewPager>

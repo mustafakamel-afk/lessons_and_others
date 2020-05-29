@@ -1,0 +1,8 @@
+
+ WebView W =(WebView)findViewById(R.id.W);
+        W.getSettings().setUseWideViewPort(true);
+        W.getSettings().setDisplayZoomControls(false);//‰€·ﬁ «“—«— «· ﬂ»Ì— Ê«· ’€Ì—
+        W.getSettings().setBuiltInZoomControls(true);
+        W.setInitialScale(1);//«·ÕÃ„ «·«› —«÷Ì web view
+        W.loadUrl("file:///android_asset/bird2.jpg");
+        //«”„ «·„Êﬁ⁄ «Ê «·’Ê—Â ÂÂÂÂ

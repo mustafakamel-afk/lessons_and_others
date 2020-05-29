@@ -1,0 +1,11 @@
+
+* <uses-permission android:name="android.permission.INTERNET"/>\
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />?
+-‰«Œ– —ﬁ„ «·„ﬂ«‰ „‰ Œ—«∆ÿ ﬂÊﬂ·:
+?public  void  B3(View view){
+        Intent I = new Intent(Intent.ACTION_VIEW);
+        I.setData(Uri.parse("geo:33.3067776,44.3634241?z=19.29"));
+        if (I.resolveActivity(getPackageManager())!=null){
+            startActivity(I);
+        }
+    }

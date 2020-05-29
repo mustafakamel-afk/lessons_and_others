@@ -1,0 +1,41 @@
+
+   ImageView I,I2;
+    Uri U;
+ArrayList<Uri> IU = new ArrayList<Uri>();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_photo);
+        I=(ImageView)findViewById(R.id.I);
+        I2=(ImageView)findViewById(R.id.I2);
+    }
+    public  void  I1(View view){
+
+        Intent i =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i,100);
+    }
+    public  void  I2(View view){
+
+        Intent i =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i,200);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 100 && resultCode == RESULT_OK) {
+                IU.add(data.getData());
+                I.setImageURI(data.getData());
+        }
+        if (requestCode == 200 && resultCode == RESULT_OK) {
+            IU.add(data.getData());
+            I2.setImageURI(data.getData());
+        }
+    }
+
+    public  void  SH(View view){
+        Intent s= new Intent(Intent.ACTION_SEND_MULTIPLE);
+        s.putParcelableArrayListExtra(Intent.EXTRA_STREAM,IU);
+        s.setType("image/*");
+        startActivity(Intent.createChooser(s,"„‘«—ﬂÂ «·’Ê—"));
+    }

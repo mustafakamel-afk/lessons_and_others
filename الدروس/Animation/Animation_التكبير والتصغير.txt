@@ -1,0 +1,22 @@
+
+<scale
+        android:duration="6000"
+        android:pivotX="50%"ÇáÇÑÊßÇÒ ãËá ÇáÝÑÌÇá 
+        android:pivotY="50%"
+        android:fromXScale="0"Çæ ããßä Úãá zoom out ãä ÎáÇá ÊÛííÑ ãä 1Çáì 0
+        android:toXScale="1"
+        android:fromYScale="0"
+        android:toYScale="1"
+        />
+TextView T;
+    Animation A;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        T=(TextView)findViewById(R.id.T);
+        A= AnimationUtils.loadAnimation(this,R.anim.scale);
+        T.setAnimation(A);
+
+    }

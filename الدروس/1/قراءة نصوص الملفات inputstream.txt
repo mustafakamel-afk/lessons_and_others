@@ -1,0 +1,20 @@
+
+ TextView T = (TextView)findViewById(R.id.textView2);
+
+
+        try {
+            InputStream input = null;
+            input = getAssets().open("m.txt");//«·—»ÿ
+            int size = input.available();//Â‰« Ì÷Ì› ⁄œœ «·«Õ—› ›Ì „ €Ì— —ﬁ„Ì
+            Byte[] B = new Byte[size];
+            /* Â–« Ìﬁ—¡… «·«Õ—› „‰ «·„’›Ê›Â */
+            input.read(B);
+            input.close();
+            String txt = new String(B);
+            T.setText(txt);//‰÷⁄ «·‰’
+        }
+        catch (IOException e){
+
+        e.printStackTrace();
+    }
+    }

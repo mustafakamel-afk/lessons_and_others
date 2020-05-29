@@ -1,0 +1,33 @@
+
+public class cal extends AppCompatActivity implements TextToSpeech.OnInitListener {
+
+    TextToSpeech T;
+    EditText E;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+        E=(EditText)findViewById(R.id.editText);
+        T= new TextToSpeech(this,this);
+
+    }
+
+    @Override
+    public void onInit(int i) {//«··€«  «·„ÊÃÊœÂ ⁄»«—Â ⁄‰ «—ﬁ«„ ›Ì „ €Ì— int i
+
+        if (i==TextToSpeech.SUCCESS){
+            Locale lo = T.getLanguage();
+            int lan = T.setLanguage(lo);
+            if(lan==TextToSpeech.LANG_MISSING_DATA || lan==TextToSpeech.LANG_NOT_SUPPORTED){
+                Toast.makeText(cal.this,"⁄–—« Â« ›ﬂ ·«Ìœ⁄„ Â–Â «··€Â ",Toast.LENGTH_SHORT).show();
+            }
+        }
+
+    }
+
+    public void B(View view) {
+        T.speak(E.getText().toString(),TextToSpeech.QUEUE_FLUSH,null);
+    }
+}

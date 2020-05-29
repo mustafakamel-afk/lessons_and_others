@@ -1,0 +1,50 @@
+
+trim();
+«· ·ﬁÌ„  „”Õ «·Œ«‰«  «·›«—€Â
+⁄·Ï «·«ÿ—«›
+        T.setText(name.trim());
+----------------------------------------
+T.setText(String.valueOf(name.length()));
+·Ã·» ⁄œœ «·«Õ—›
+---------------------
+ String pname= "mustafa kamel";
+        T.setText(pname.replace("mustafa","M"));
+·Ã⁄· ﬂ·„Â »„ﬂ«‰ ﬂ·„Â 
+------------------------------------------
+String pname= "mustafa kamel";
+T.setText(pname.substring(5));
+··Õ–›
+fa kamel
+-----------------------------
+String pname= "mustafa kamel";
+ T.setText(pname.substring(3,6));
+taf
+ ›Ìœ „⁄ «ﬁ—√ «·„“Ìœ 
+----------------------------------
+·· ﬁ”Ì„ 
+ String name="Hi - my - name - is - mustafa ";
+ String R []= name.split("-");
+        String line;
+        StringBuilder B = new StringBuilder();
+        for (int i =0 ;i<R.length;i++){
+            line = R[i];
+            B.append(line.trim()+ "\n");
+        }
+        T.setText(B);
+hi 
+my 
+name 
+.
+.
+-----------------------------
+continas
+ ›Ìœ ›Ì «·»ÕÀ 
+--------------------------------------------
+equals
+„⁄—Ê›Â 
+-----------------------------------
+start with:Â· ÌÕ ÊÌ «·‰’ ⁄·Ï Â–Â «·ﬂ·„Â
+„·«ÕŸÂ »œ«ÌÂ «·‰’ 
+«„« end with ⁄ﬂ”Â ;
+›Ì «·‰Â«ÌÂ
+link.endwith("mp3");

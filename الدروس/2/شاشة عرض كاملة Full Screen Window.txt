@@ -1,0 +1,15 @@
+
+έν γαέ style 
+δΦνέ 
+* <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowFullscreen">true</item>
+δΪγα ΣΚΗνα ΞΗΥ ζδΡΘΨε ΘζΗΜε γΪνδε 
+  <style name="mk" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+έν γαέ ΣΚΗνα 
+ζδΦνέε έν ΗαζΗΜε γδ γαέ γΗνδένΣΚ 
+ <activity android:name=".ali"
+            android:theme="@style/mk">
+        ></activity>

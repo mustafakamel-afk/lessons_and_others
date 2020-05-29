@@ -1,0 +1,10 @@
+final WebView W = (WebView)findViewById(R.id.W);
+        final EditText E = (EditText)findViewById(R.id.E);
+        W.setWebViewClient(new WebViewClient());
+        Button B = (Button)findViewById(R.id.B);
+        B.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                W.loadUrl(E.getText().toString());
+            }
+        });

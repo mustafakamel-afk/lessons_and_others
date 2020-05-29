@@ -1,0 +1,29 @@
+
+   ImageView mg;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mg=(ImageView)findViewById(R.id.imageView);
+    }
+    public  void  B(View view){
+        Intent I = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+        I.putExtra("crop","true");
+        I.putExtra("aspectX",1);
+        I.putExtra("aspectY",1);
+        I.putExtra("outputX",200);
+        I.putExtra("outputY",200);
+        I.putExtra("return-data",true);
+        startActivityForResult(I,100);//ÚáãæÏ ÊÑÌÚ áäÇ ÇáäÊíÌå íÚäí íäÊŞá ááãÚÑÖ æíÌáÈ ÇáÕæÑå
+        //äÚØíå ÑŞã
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==100&&resultCode==RESULT_OK){
+
+            mg.setImageBitmap((Bitmap)data.getExtras().get("data"));// Bitamp áÇä ÇáÕæÑå ÇáÌÏíÏå ãÔ ãæÌæÏå İí ÇáãÚÑÖ
+        }
+    }

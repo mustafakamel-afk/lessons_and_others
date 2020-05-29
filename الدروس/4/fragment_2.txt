@@ -1,0 +1,73 @@
+package com.example.ham.test;
+
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+
+public class MainActivity extends AppCompatActivity {
+
+    myfragment myfrag = new myfragment();
+    myfragment_2 myfrag_2 = new myfragment_2();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+    }
+
+
+    public void AddA(View view) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();// add delete replace  åĞå ÇáÏÇáå ÊÚØíäÇ ãÑæäå ÚÇáíå İí ÇáÊÍßã İí fragment
+        fragmentTransaction.replace(R.id.frame_layout,myfrag); //(ÇáİÑÇßãäÊ ÇáãÑÇÏ æÖÚå,ãßÇä æÖÚ ÇáİÑÇßãäÊ)
+        fragmentTransaction.commit();
+    }
+
+    public void AddB(View view) {
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();// add delete replace  åĞå ÇáÏÇáå ÊÚØíäÇ ãÑæäå ÚÇáíå İí ÇáÊÍßã İí fragment
+        fragmentTransaction.replace(R.id.frame_layout,myfrag_2); //(ÇáİÑÇßãäÊ ÇáãÑÇÏ æÖÚå,ãßÇä æÖÚ ÇáİÑÇßãäÊ)
+        fragmentTransaction.commit();
+    }
+
+    //replace ááÊÈÇÏá Èíä ÇáİÑÇßãäÊ  İíÊã ÍĞİ ÇáİÑÇßãäÊ ÇáÓÇÈŞ æÇÖÇİå ÇáİÑÇßãäÊ ÇáÌÏíÏ
+    //ÚßÓ add ÇáĞí ÇĞÇ ÇÑÏÊ Çä ÊÖíİ ÇáİÑÇßãäÊ ãÑÉ ÇÎÑì íÚØíß ÎØÃ ÍíË íÖíİ ÇáİÑÇßãäÊ ÇáÌÏíÏ Úáì ÇáİÑÇßãäÊ ÇáŞÏíã ÈÏæä ÍĞİ ÇáŞÏíã
+}
+----------------------------------------------
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <FrameLayout
+        android:id="@+id/frame_layout" //ãßÇä æÖÚ ÇáİÑÇßãäÊÓ
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="AddA"
+        android:text="Add A"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="AddB"
+        android:text="AddB"
+        tools:ignore="OnClick" />
+
+
+</RelativeLayout>

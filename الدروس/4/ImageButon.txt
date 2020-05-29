@@ -1,0 +1,18 @@
+<style name="Widget.ImageButton">
+     <item name="android:focusable">true</item>
+     <item name="android:clickable">true</item>
+     <item name="android:scaleType">center</item>
+     <item name="android:background">@android:drawable/btn_default</item>
+ </style>
+Image button
+еж Ён «б√’б Џ»«—… Џд “— н г «б÷џЎ Џбне бЏгб ЌѕЋ г« √ж гег… гЏнд… »ѕб«Џд яжд… д’ Џ«ѕн няжд Ён ‘яб ’ж—… :framed_picture:
+
+Image view
+еж ’ж—… Џ«ѕн… бѕне« ггн“«
+
+
+«бЁ—ё еж:
+imageView:  ÷Џ ’ж—… ЁёЎ ѕ«ќб «б Ў»нё ж нгядя «н÷« «д  ÷Џ Џбне« «ж«г— я√д нёжб »Џгб ‘н Ён Ќ«бе «–« г« ÷џЎ Џбм «б’ж—…Е
+imageButton: 
+
+\еж Џ»«—… Џд “— »ѕ«ќбе д’ + ’ж—… Е ж бб“— ќ’«∆’ яЋн—… гЋб «де н џн— бжде Џдѕ «б÷џЎ ЏбнеЕ ж нгядя «б Ќяг »ж÷Џ «б’ж—… Ёжё «бд’ «ж гд «бнгд «ж н”«— «бд’ «ж «”Ёб «бд’Е «бня е–… «б’ж—… бб ж÷нЌ

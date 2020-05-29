@@ -1,0 +1,28 @@
+
+  //ßæÏ íŞÑÇÁÉ ÇáÇÓØÑ ÚßÓ ÇáÏÑÓ ÇáãÇÖí
+        TextView T = (TextView)findViewById(R.id.textView);
+
+        StringBuilder build = new StringBuilder();//ÈäÇÁ ÇáäÕ ßá ãÑå íÚäí ÇĞÇ ÌÇÁ äÕ ÌÏíÏ ãÇ íÍĞİå ÚßÓ string
+try{
+        InputStream in = getAssets().open("mkk.txt");
+
+    InputStreamReader read = new InputStreamReader(in);//íØáÈ ÇáÑÈØ ÇáÎÇÕ Èáİ ÇáäÕ
+
+    BufferedReader br =new BufferedReader(read);//íŞÑÇÁÉ InputStreamReader ÇáĞí İíå ÇáÑÇÈØ
+try{
+    String line;
+
+    while ((line=br.readLine())!=null){//ßÑÑ ÈÍÇáå ÇáİÑÇÛ
+
+        build.append(line);
+        build.append('\n');
+    }
+}
+catch (IOException ee){}
+
+    }
+    catch (IOException e){
+        e.printStackTrace();
+
+    }
+    T.setText(build);

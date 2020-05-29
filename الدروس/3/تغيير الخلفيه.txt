@@ -1,0 +1,16 @@
+
+ public void  back(View view){
+        if(B==true){
+            B=false;
+            color_of_background = Color.parseColor("#1a2125");
+            line.setBackgroundColor(color_of_background);
+            color_of_text = Color.parseColor("#ECEFF1");
+            story.setTextColor(color_of_text);}
+        else {
+            B=true;
+            color_of_background = Color.parseColor("#ffffff");
+            line.setBackgroundColor(color_of_background);
+            color_of_text = Color.parseColor("#100f0f");
+            story.setTextColor(color_of_text);
+        }
+    }

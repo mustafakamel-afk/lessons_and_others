@@ -1,0 +1,32 @@
+package com.example.ham.example;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText editText;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        editText = (EditText)findViewById(R.id.editText);
+
+    }
+
+    public void saved(View view) {
+
+        // Write a message to the database
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("name"); //DatabaseReference Ì„À· «·Ã–— «·„ÊÃÊœ ›Ì firebase
+        //myRef.setValue(editText.getText().toString());
+        myRef.push().setValue(editText.getText().toString()); //Â–« «·ﬂÊœ ”Ê› ÌﬁÊ„ »⁄„· keys „Œ ·›Â ·ﬂÌ ‰„Ì“ «·»Ì«‰«  ⁄ﬂ” «·ﬂÊœ «·›Êﬁ
+
+    }
+}

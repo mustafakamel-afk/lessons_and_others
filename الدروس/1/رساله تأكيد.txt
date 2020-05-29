@@ -1,0 +1,23 @@
+public void D(View view ) {
+
+            final EditText E = (EditText) findViewById(R.id.E);
+            AlertDialog.Builder b = new AlertDialog.Builder(this);
+            b.setMessage("Do you want to delete");
+            b.seticon()
+            b.setTitle("Delete");
+            b.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        E.setText("");
+
+                    }
+            });
+
+            b.setNegativeButton("No",new DialogInterface.OnClickListener(){
+                @Override
+                public  void  onClick(DialogInterface dialog,int id){
+
+                }
+
+            }).show();
+        }

@@ -1,0 +1,89 @@
+
+ÌÃ» «‰ ÌﬂÊ‰ RelativeLayout
+visibalty ··«“—«“— «Ã⁄·Â« „Œ›ÌÂ
+tran_in
+ <rotate
+
+        android:duration="1000"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        />
+    <translate
+        android:duration="1000"
+        android:fromXDelta="1000"
+        android:fromYDelta="1000"
+        android:toXDelta="0"
+        android:toYDelta="0"
+        />
+--------------------------------------------------------------
+trAN_out
+<rotate
+
+        android:duration="1000"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:fromDegrees="360"
+        android:toDegrees="0"
+        />
+    <translate
+        android:duration="1000"
+        android:fromXDelta="0"
+        android:fromYDelta="0"
+        android:toXDelta="1000"
+        android:toYDelta="1000"
+        />
+---------------------------------------------------
+<rotate ··“— «·—∆Ì”Ì
+
+        android:duration="1000"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        />
+----------------------------
+ Button email,share,con;
+    Animation tran_in , tran_out,rotate;
+    boolean open=true;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+        email=(Button)findViewById(R.id.email);
+        share=(Button)findViewById(R.id.share);
+        con=(Button)findViewById(R.id.con);
+        tran_in= AnimationUtils.loadAnimation(this,R.anim.tran);
+        tran_out=AnimationUtils.loadAnimation(this,R.anim.tranout);
+        rotate=AnimationUtils.loadAnimation(this,R.anim.rotare);
+        con.bringToFront();//Ã⁄· «·“— ›Ì «·«„«„
+
+
+    }
+
+    public void B1(View view) {
+        if (open) {
+            open=false;
+            con.startAnimation(rotate);
+            share.startAnimation(tran_in);
+            email.startAnimation(tran_in);
+
+
+            share.setVisibility(View.VISIBLE);
+            email.setVisibility(View.VISIBLE);
+        }
+        else {
+            open=true;
+            con.startAnimation(rotate);
+            share.startAnimation(tran_out);
+            email.startAnimation(tran_out);
+
+            share.setVisibility(View.INVISIBLE);//·«Œ›«¡
+            email.setVisibility(View.INVISIBLE);
+
+        }
+
+    }

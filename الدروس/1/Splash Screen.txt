@@ -1,0 +1,20 @@
+
+Thread T = new Thread(){
+
+            public void run(){
+
+                try {
+                    sleep(4500);
+
+                    Intent I = new Intent(getApplicationContext(),MainActivity.class);
+
+                    startActivity(I);
+                    finish();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        };
+        T.start();
+==============

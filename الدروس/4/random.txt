@@ -1,0 +1,32 @@
+
+  ArrayList<String> Random_plyers = new ArrayList<String>();
+    ArrayList<String> plyers = new ArrayList<String>();
+    Random random = new Random();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cal);
+        plyers.add("Mustafa");
+        plyers.add("Ali");
+        plyers.add("Ahmed");
+        plyers.add("Ans");
+        plyers.add("khalid");
+        plyers.add("Houssen");
+        plyers.add("Ala");
+        plyers.add("kamel");
+        plyers.add("Abbas");
+    }
+
+    public void B(View view) {
+
+        int plyers_Number  = random.nextInt(plyers.size()-2)+2;//ÇŞá ÚÏÏ ÇËäíä æÇßÈÑ ÚÏÏ ÇËäíä
+
+        for (int i =0;i<plyers_Number;i++){//plyers_Number åæ ÚÏÏ ãä ÎáÇáå äÚãá for
+            Random Index_P=  new Random();
+            int plyers_Index = Index_P.nextInt((plyers.size()-1)-0)+0;
+            Random_plyers.add(plyers.get(plyers_Index));
+            plyers.remove(plyers_Index);
+        }
+    }
+}

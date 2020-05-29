@@ -1,0 +1,20 @@
+1)„‰ «·«‰ —‰  
+VideoView V = (VideoView)findViewById(R.id.V);
+
+        String u2 ="—«»ÿ «·›ÌœÌÊ";
+        Uri uri = Uri.parse(u2);
+        V.setVideoURI(uri);
+        V.setMediaController( new MediaController(this));
+        V.requestFocus();
+        V.start();
+===============================================
+2) »œÊ‰ ‰  :
+›Ì „Ã·œ raw 
+ VideoView V = (VideoView)findViewById(R.id.V);
+
+        String u2 ="android.resource://com.example.ham.my_app/"+R.raw.«·›ÌœÌÊ;
+        Uri uri = Uri.parse(u2);
+        V.setVideoURI(uri);
+        V.setMediaController( new MediaController(this));
+        V.requestFocus();
+        V.start();

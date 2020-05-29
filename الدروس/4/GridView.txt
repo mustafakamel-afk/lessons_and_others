@@ -1,0 +1,63 @@
+
+    <GridView
+        android:id="@+id/grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="120dp"
+        android:numColumns="auto_fit"></GridView>
+------------------------------------------------------
+ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("mane");arrayList.add("salah");arrayList.add("firmino");
+
+        GridView gridView = (GridView) findViewById(R.id.grid_view);
+
+        GridAdapter gridAdapter = new GridAdapter(arrayList,this);
+
+        gridView.setAdapter(gridAdapter);
+    }
+}
+
+
+class GridAdapter extends BaseAdapter {
+
+    ArrayList<String> arrayList = new ArrayList<>();
+    Context context;
+
+    public GridAdapter(ArrayList<String> arrayList, Context context){
+        this.arrayList = arrayList;
+        this.context = context;
+    }
+
+    @Override
+    public int getCount() { // ÚÏÏ ÚäÇÕÑ Çá Grid View
+        return arrayList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return Long.parseLong(arrayList.get(position));
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        View view = convertView;
+
+        if (view == null){
+            view = LayoutInflater.from(context).inflate(R.layout.text_view,parent,false);
+        }
+        //ÇáÎØæÉ ÇÚáÇå ÊÚØí ãÑæäå ÇßËÑ ãä ÇáÎØæÉ ÇÏäÇå ãä ÎáÇá Úãá recycle áÚäÇÕÑ Çá Grid View
+
+       //View view = LayoutInflater.from(context).inflate(R.layout.text_view,parent,false);
+
+        TextView textView = (TextView) view.findViewById(R.id.text_view);
+
+        textView.setText(arrayList.get(position));
+
+        return view;
+    }

@@ -1,0 +1,4 @@
+ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+
+          uploadImage.setBackgroundColor(Color.RED);
+      }

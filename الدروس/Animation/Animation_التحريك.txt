@@ -1,0 +1,17 @@
+
+<translate
+        android:duration="6000"
+        android:fromYDelta="300" -ÇÐÇ ÊÑíÏ íÊÍÑß ãä ÇáÇÚáì Çáì  ÇáÇÓÝá äÓæíå ÓÇáÈ ãËÇá 300
+        android:toYDelta="0"ÇáÑÌæÚ Çáì ÇáãßÇä ÇáÇÕáí 
+        />
+TextView T;
+    Animation A;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        T=(TextView)findViewById(R.id.T);
+        A= AnimationUtils.loadAnimation(this,R.anim.tran);
+        T.setAnimation(A);
+    }

@@ -1,0 +1,59 @@
+
+ ﬂ»Ì— Ê ’€Ì— 
+ TextView T;
+    SeekBar S;
+    int max =60;
+    int min=20;
+    int plus =2;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        T=(TextView)findViewById(R.id.T);
+        S=(SeekBar)findViewById(R.id.seekBar);
+        S.setMax((max-min)/plus);//40
+        S.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                T.setTextSize(min +(i * plus));//Ì⁄‰Ì «»œ¡ „‰ 20 «·Ï  ÷—» «·‘—Ìÿ «·«› —«÷Ì ›Ì 2 {40}
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+=======================================================================
+ edit=(EditText)findViewById(R.id.editText);
+
+        SharedPreferences sh = getSharedPreferences("PREPS",0);
+        memo=sh.getString("memo","");
+        edit.setText(memo);
+
+
+    }
+
+
+    public void clear(View view) {
+        memo="";
+        edit.setText(memo);
+    }
+
+    public void save(View view) {
+
+        memo=edit.getText().toString();
+
+        SharedPreferences sh = getSharedPreferences("PREPS",0);
+
+        SharedPreferences.Editor ed = sh.edit();
+        ed.putString("memo",memo);
+        ed.commit();
+
+        Toast.makeText(seeting.this," „ «·Õ›Ÿ",Toast.LENGTH_SHORT ).show();

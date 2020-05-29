@@ -1,0 +1,12 @@
+
+*  <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+ public  void  A(View view){
+
+        Intent I = new Intent(AlarmClock.ACTION_SET_TIMER);
+        I.putExtra(AlarmClock.EXTRA_MESSAGE,"«·”·«„ ⁄·Ìﬂ„");//—”«·Â «· ‰»ÌÂ
+        I.putExtra(AlarmClock.EXTRA_LENGTH,10);
+        I.putExtra(AlarmClock.EXTRA_SKIP_UI,true);//Œ«’ÌÂ «€·«ﬁ «·„‰»Â ‰÷⁄ true
+        if(I.resolveActivity(getPackageManager())!=null){
+            startActivity(I);
+        }
+    }

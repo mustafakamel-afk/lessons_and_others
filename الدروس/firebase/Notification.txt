@@ -1,0 +1,85 @@
+compile files('picasso-2.5.2.jar')
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.google.firebase:firebase-core:15.0.0'
+    compile 'com.google.firebase:firebase-database:15.0.0'
+    compile 'com.google.firebase:firebase-auth:15.1.0'
+    compile 'com.google.android.gms:play-services-auth:15.0.1'
+    compile 'com.google.firebase:firebase-messaging:15.0.2'
+    testCompile 'junit:junit:4.12'
+}
+
+apply plugin: 'com.google.gms.google-services'
+=========================================
+<uses-permission android:name="android.permission.INTERNET" />
+=======================================================
+public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService  {
+
+    private  static final String REG_TOKEN = "REG_TOKEN";
+
+    @Override
+    public void onTokenRefresh() {
+
+        String recent_token  = FirebaseInstanceId.getInstance().getToken();
+
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("FCM_TOKEN",MODE_PRIVATE);
+
+        sharedPreferences.edit().putString("FCM_TOKEN",recent_token).apply();
+
+        Log.d(REG_TOKEN,recent_token);
+
+
+    }
+}
+=========================================================
+package com.example.ham.example;
+
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
+
+import com.google.firebase.messaging.FirebaseMessagingService;
+import com.google.firebase.messaging.RemoteMessage;
+
+public class MyFirebaseMessagingService extends FirebaseMessagingService {
+
+    @Override
+    public void onMessageReceived(RemoteMessage remoteMessage) {
+
+        if (remoteMessage.getData().size() > 0){ //«–« Â‰«ﬂ —”«·Â „‰ «·”Ì—›— «—”· «‘⁄«—
+
+            String title = remoteMessage.getNotification().getTitle();
+            String message = remoteMessage.getNotification().getBody();
+
+            Intent i = new Intent(this,MainActivity.class);
+
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+            PendingIntent pendingIntent = PendingIntent.getActivity(this,0,i,PendingIntent.FLAG_ONE_SHOT);
+
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+            builder.setSmallIcon(R.mipmap.ic_launcher);
+            builder.setContentTitle(title);
+            builder.setContentText(message);
+
+            builder.setContentIntent(pendingIntent);
+            builder.setDefaults(NotificationCompat.DEFAULT_SOUND);
+            builder.setAutoCancel(true);
+
+            NotificationManager mm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            mm.cancel(1);
+            mm.notify(1, builder.build());
+
+        }
+    }
+}
+=============================================================
+
+        System.out.println("MY Token :"+ FirebaseInstanceId.getInstance().getToken());// Â–« «·ﬂÊœ Ìÿ»⁄ —ﬁ„ «·«’œ«— «·Œ«’ »ÃÂ«“ «·„” Œœ„
+
+        //›”Ê› ÌŸÂ— —ﬁ„ «·«’œ«— ›Ì android monitor
