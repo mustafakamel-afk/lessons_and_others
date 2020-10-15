@@ -1,0 +1,84 @@
+
+
+void main(){
+
+  var messi = FootballPlayer("RW");
+  messi.speed = 40;
+  messi.acceleration = 20;
+  messi.physical = 50;
+  messi.showAllProperties();
+
+
+  var lebron = BasketballPlayer();
+  lebron.speed =  60;
+  lebron.acceleration = 10;
+  lebron.physical = 90;
+
+}
+
+
+class Player{ //super class for FootballPlayer
+  int speed;
+  int acceleration;
+  int physical;
+
+  Player(int speed, int acceleration, int physical){
+    this.speed = speed;
+    this.acceleration = acceleration;
+    this.physical = physical;
+    print("Player");
+  }
+
+  showProperties(){
+    print("Properties of Player");
+  }
+
+
+}
+
+class FootballPlayer extends Player{//sub class for Player, super class for BasketballPlayer / (direct inheritance) with Player.
+  String position;
+
+  @override //-> just tag ((åæ Úãá ÏÇáÉ ãÔÇÈåÉ áÏÇáÉ ãæÌæÏÉ Ýí ßáÇÓ ÇáÇÈ ãÚ ÊØæíÑ åÐå ÇáÏÇáÉ æÈÇáÊÇáí íÝíÏ Ýí ÊØæíÑ ÏÇáÉ ÇáßáÇÓ ÇáÇÈ íÚäí ãÇ ÊÑíÏå ãËá ãÇ åæ ãæÌæÏ Ýí ßáÇÓ ÇáÇÈ
+  showProperties(){
+    print("Properties of FootballPlayer");
+  }
+
+
+  showAllProperties(){
+    showProperties();
+   super.showProperties();
+    // it's an access to the super -player-.
+    // the most common use of super is to eliminate the ambiguity between superclass and subclass that have variables and methods( between override method and original method )  with the same name.
+ }
+
+
+
+ //superclass constructor isn't inherited in the subclass, it can be invoked by super() in sub class constructor.
+
+ //implicit super -> if no parameters in the superclass constructor.
+
+  /* FootballPlayer(){
+    //The compiler implicitly adds super() here as the first statement, so when make object from FootballPlayer, it will execute the constructor of superclass and subclass.
+     print("FootballPlayer");
+
+   }
+  */
+
+   //explicit super ->   parameters in the superclass constructor.
+
+   FootballPlayer(String position):super(40,50,60){
+      this.position = position;
+   }
+
+
+
+
+
+}
+
+class BasketballPlayer extends FootballPlayer{ //sub class for FootballPlayer  / (direct inheritance) with FootballPlayer, (indirect inheritance) with Player.
+
+
+}
+

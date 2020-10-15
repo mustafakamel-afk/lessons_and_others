@@ -1,0 +1,625 @@
+import 'package:meta/meta.dart.';
+import 'dart:math';
+import 'dart:core';
+
+void main(){
+
+//Comments
+//single line.
+/*multi line*/
+// documentation  comment -> used to make documentation or reference for a project/package.the Dart compiler ignores all text unless it is enclosed in brackets. Using brackets, you can refer to classes, methods, fields, top-level variables, functions, and parameters. The names in brackets are resolved in the lexical scope of the documented program element.
+
+  /// A domesticated South American camelid (Lama glama).
+  ///
+  /// Andean cultures have used llamas as meat and pack
+  /// animals since pre-Hispanic times.
+  String name;
+
+  /// Feeds your llama [Food].
+  ///
+  /// The typical llama eats one bale of hay per week.
+  /*void feed(Food food) {
+  // ...
+  }
+*/
+  /// Exercises your llama with an [activity] for
+  /// [timeLimit] minutes.
+  /*void exercise(Activity activity, int timeLimit) {
+  // ...
+  }*/
+
+  //[Food] becomes a link to the API docs for the Food class.
+  // «·“»œ…  ⁄„· ÊÀÌﬁ… ﬂ«„·… ··ﬂÊœ «·„ﬂ Ê» Ê  ’› ﬂ· ‘Ì „‰ ﬂ·«” Ê œ«·Â Ê „ €Ì— Ê €Ì—Â« Ê«· Ì  Ê÷⁄ œ«Œ· ﬁÊ”Ì‰ ··œ·«·Â ⁄·ÌÂ« ›ÂÌ  ‘»Â ApI.
+  //„” ﬁ»·« ⁄‰œ «·„„«—”… ”‰›Â„Â« «ﬂÀ—
+
+  //there also tags like @required, etc.
+
+
+//Data type
+
+/*var name = 'mk',number=45, decimal = 4.5, b = false;
+num n1 = 45632,n2=2.5; //->  int , double are subtypes from num
+int n = 45;
+double d = 5.5;
+bool bol = true;*/
+
+// var vs dynamic
+  /*
+ //both you can change the value after initialize
+ dynamic x = 'hal';  //you have the flexibility to change the type
+ x = 123;
+ print(x);
+ var a = 'hal';//you don't have the flexibility to change the type
+ a = 123;
+ print(a);
+ */
+/*
+dynamic is a type underlying all Dart objects. You shouldn't need to explicitly use it in most cases.
+
+var is a keyword, meaning "I don't care to notate what the type is here." Dart will replace the var keyword with the initializer type, or leaving it dynamic by default if there is no initializer.
+ */
+
+// const vs final
+
+/*
+Compile-time is the time at which the source code is converted into an executable code while the run time is the time at which the executable code is started running. Both the compile-time and runtime refer to different types of error.
+*/
+
+  const v = 45; //Value must be known at compile-time even if you don't use its value it will get initialized and will take space in memory at compile-time., Can't be changed after initialized./ if the value is known at compile time,use it.
+  final d = 45; //Value must be known at run-time means the value will take space in memory at run-time, Can't be changed after initialized./ if you don't know the value at compile time, like t an HTTP response that can't be changed, if you want to get something from a database, or if you want to read from a local file, use final.
+
+
+
+//1) numbers
+
+/*
+// int -> 64 bits / -2^63 to 2^63 , double -> 64 bits
+// int , double are subtypes from num
+
+// parse convert string to number.
+int a = int.parse("10");
+double b = double.parse("15.5");
+num c = num.parse("15");
+print(a + b + c);
+
+// convert number to String.
+int e = 5;  print(e.toString());
+double f = 5.5;  print(f.toString());
+num g = 546;  print(g.toString());
+
+
+//properties
+int x = 1, y = 0;
+double z = x/y; print(z.isFinite);print(z.isInfinite);
+int r = -5; print(r.sign);print(r.isNegative);print(r.isNaN);print(r.isEven);print(r.isOdd);
+
+
+//methods
+double t = 2.5;
+print(t.floor());// greatest integer -> input 2.5 , output 2(the greatest integer).
+print(t.ceil());// smallest integer -> input 2.5 , output 3(the smallest integer).
+// in both integer remain integer.
+
+int integer = 8; print(integer.toDouble());
+double doubl = 8.5; print(doubl.toInt());
+
+double taqreeb = 5.6; print(taqreeb.round()); //  ﬁ—Ì»
+
+int remainder = 8; print(remainder.remainder(5)); //the remainder of the division
+
+var truncate = 2.3665; print(truncate.truncate()); // returns integer without decimal(cut).
+
+//there are more function.
+*/
+
+
+
+//2) Strings
+  /*String mk  = "mustafa kamel";
+
+ print(mk.substring(0,3));
+ print(mk.replaceAll("kamel", "Ahmed"));
+ print(mk.contains("ka"));
+ print("\"mkbjkb\"");
+
+ String list = "mk; jk; jf";
+ print(list.split(";"));
+
+ String str = "mk    ";
+ print(str.trim());
+
+ String fv = "MKk" ;
+ print(fv.toLowerCase());
+ print(fv.trim().toUpperCase()); // important
+ print(fv.trimRight().toUpperCase()); // important
+ print(fv.trimLeft().toUpperCase()); // important*/
+  //there are allot
+
+
+//3) list
+
+/*var list1  = [4,4.5,"mk",true];
+  list1[0] = "ok"; list1[3] = "true";
+  //there ary many important functions , constants(enums), etc. try it.
+
+
+var list2 = const[4,8,6,58];
+ //list2[1] = 1; // the problem will exist in run-time.
+
+
+List<String> list3 = ['km',"kd","kd"];   List<int> list4 = [4,2,5];   List<String> mk = new List<String>();
+
+
+  var list5 = [1, 2, 3]; // spread operator (...) -> insert multiple values into another collection.
+  var list6 = [0, ...list5];
+  var list7 = [1, 2, 3]; // null-aware spread operator (...?), -> If the expression to the right of the spread operator might be null, you can avoid exceptions by using a null-aware spread operator (...?)
+  var list8 = [0, ...?list5];
+
+
+ bool t = true;
+  var list9 = [4,8,2, if(t)5];
+
+
+  List<int> list10 = [4,5,8,5];
+  list10.forEach((element) { // instead of for loop
+    print("element" + element.toString());
+  });
+  for(var i in list10){// instead of for loop
+    print(i);
+  }
+
+  List list = new List();
+  list.add(15);
+  list.add("yes");
+  list.add(15.5);
+  list.add(true);
+  print(list);
+ */
+
+
+//4) boolean -> easy
+
+//5) Map
+
+//-> (key : value) both can be any type of object / not necessary key and value have the same data type./ key is unique  / key occurs only once, but same value can used multiple times /
+
+  /*
+var info = {"name": "mk" , "age": 19 , "university" :"baghdad" , "collage":"engineering" , "departmeant":"BME" , "average":97.57 };
+//print(info.values);
+//print(info.keys);
+//print(info.remove("name"));
+info.forEach((key, value) {
+  print("$key -> $value");
+});
+  print(info["name"]);// to get a specific value from a specific key.
+
+
+  Map<int,String> superMarket = new Map(); // declare
+  superMarket[1] = "Food";
+  superMarket[2] = "clothes";
+  superMarket[3] = "electronic";
+  superMarket[4] = "pigs";
+  print(superMarket);
+print(superMarket[5]);// to get a specific value from a specific key.
+
+
+  Map youFree = new Map();//without data_type
+  youFree["name"] = "mustafa";
+  youFree[1] = 2.5;
+  youFree[2.5] = 4;
+  youFree['mk'] = true;
+  print(youFree);
+
+  Map map = Map(); // You might expect to see new Map() instead of just Map(). As of Dart 2, the new keyword is optional.
+  map["name"] = "Ali";
+  print(map["name"]);
+  map["name"]  = "Ahmed"; // update a certain value from a certain key.
+  print(map["name"]);
+
+
+  final constantMap = const {
+    2: 'helium',
+    10: 'neon',
+    18: 'argon',
+  };
+
+ //constantMap[2]  = 'hn'; // error in run-time
+
+
+var info1 = {"name":"Ali" , "age" : 20};
+var info2 = {...info1,"department":"engineering" , "salary" : "5000 \$"};
+info2.forEach((key, value) {print("$key : $value");});
+*/
+
+// 6) Runes -> String is used to hold sequence of characters, numbers, special characters to it. In dart string is represented as a sequence of unicode UTF-16.
+
+  /*
+var heart = "\u2665";
+var smile = "\u{1f625}"; // {} when the digits are more than or less than 4.
+   print(heart + smile);
+
+//UTF-8 uses one byte at the minimum in encoding the characters while UTF-16 uses minimum two bytes.
+String my_name = "Mustafa"; // return the encoding of the character (16-bit UTF-16 at given index).
+print(my_name.codeUnitAt(0));
+
+String country = "Iraq";
+print(country.codeUnits); // return the encoding for each character.
+*/
+
+
+//7)symbol -> if you need it , learn it.
+
+//object refer an operator or identifier declared in a Dart program.
+
+//You might never need to use symbols, but theyíre invaluable for APIs that refer to identifiers by name, because an identifier name can changes but not identifier symbols.
+//Identifier refers to name given to entities such as variables, functions, structures etc.
+
+
+// Sets
+
+/*
+//A set in Dart is an unordered collection of unique items(order of elements isn't important) + won't allows duplicate elements(unique)
+
+  var set1 = {4, 4.5, "mk", true};
+
+  var set2 = {}; //empty set
+
+  Set<String> set3 = {"mk", "kgf","lkf"};
+ // print(set3[4]); // error
+ // print(set3.elementAt(0));//ok
+
+  Set<String> set4 = {};   var set5 = <String>{};
+  set4.add("mk");
+  set4.single;//-> is the set has one element, if yes, return it.
+
+  final constantSet = const {
+  'fluorine',
+  'chlorine',
+  'bromine',
+  'iodine',
+  'astatine',
+  };
+
+
+  // syntax map is similar to the set, if you don't write the type of data the syntax will be map
+  var names = {};// its map, not set
+
+
+  var students  = <String>{"mk","korry","syad"};
+  var students2  = <String>{"OK"};
+  students2.addAll(students);
+ // print(students2);
+  List<String> list = students2.toList();   //set to list
+  //print(list[1]);
+
+
+  var a = {1,5,2,7};
+  var b = {1,2,6}; // should be in the same type
+  print(a.union(b));
+  print(a.intersection(b));
+  print(a.difference(b));//Ì⁄—÷ ⁄‰«’— «·«Ê·Ï ﬂ·Â Ê·ﬂ‰ „⁄ „—«⁄«… ⁄œ„ ⁄—÷ ⁄‰«’— «·«Ê·Ï «· Ì ·Â« ‘»ÌÂ »«·À«‰Ì…
+
+
+  Set set = new Set();
+  set.add(15);
+  set.add("yes");
+  set.add(15.5);
+  set.add(true);
+  print(set);
+  */
+
+
+//Operators
+
+/*
+//1) Assignment operators -> assign value to variable.
+// a=b , a+=b , a-=b,  a*=b, a/=b, a~/=b(return integer result), a%=b, bitwise assignment.
+int a = 5, b = 9, c = a~/=b; print(c);
+
+//2) Arithmetic operators.
+// a+b, a-b, a*b, a/b ,a~/b, a%b, -(a-b)(unary- minus).
+
+//3) Unary operators -> work on a single operand.[increment][decrement].
+// ++a(·Â «”»ﬁÌ… Ì ‰›– À„  Ã—Ï «·⁄„·Ì… «·—Ì«÷Ì…)[prefix], a++(⁄ﬂ” –·ﬂ)[postfix] , a--, --a;
+
+//3) Type test operators -> checking type of an object at runtime.
+// is, is!, as(cast an object to a particular type if and only if you are sure that the object is of that type).
+
+  var mk ="m";
+print(mk is String); print(mk is! String); // return true or false(instance of).
+
+
+int object = 16;
+ // print(object as double); // type 'int' is not a subtype of type 'double' in type cast
+ var result =  object as int; // if the  object is instance of int, it will throw the value of the object.
+print(result);
+
+//4)Relational / comparison operators -> comparison between tw operands.
+// a>b, a<b, a>=b, a<=b, a==b , a!=b;
+
+//4)Logical operators -> combine expression with conditional statements.
+// a || b (AND), a && b(OR) , !a(NOT).
+if(!(3>9))
+  print("OK");
+
+//5)Conditional / Ternary operators -> short hand of (if-else).
+
+var val1  = (5>2)?"MK":"OK"; // 1)
+print(val1);
+
+
+var expr1 = "Hello", expr2 = "World" ;
+var val2 = expr1 ?? expr2; //2) if expr1 is non-null, return its value / if expr1 is null, return the value of expr2.
+print(val2);
+
+
+String fun(){
+  return "mk";
+}
+
+//6) Cascade notation (..) operators -> help us to perform a sequence of operations on the same object.
+
+Car car = new Car(); //This often saves you the step of creating a temporary variable and allows you to write more fluid code
+car..setSpeed(50)
+   ..setAcceleration(40)
+   ..setCompany("BMW")
+   ..model = "2012";
+
+*/
+
+
+
+//if
+  /*String name = "Ahemd";
+ if(name.isEmpty){
+  print("Ok");
+ }
+ else if(name.isNotEmpty){
+  print("NO");
+ }
+ else{
+  print("Thanks");
+ }*/
+
+  //is
+/* var one = "mk", two = "Ah";
+ if(one is String && one is String){
+  print("Yes");
+ }
+ else if(one is int || one is int){
+  print("NO");
+ }*/
+
+//switch
+/*
+String mk  = 'mk';
+dynamic n = 554;
+ switch(mk){
+
+   case 'ahemd':
+   case 'ali':
+   case 'fatima':
+   print("mk");
+   break;
+   case 'syd[;l': print("mkf;ldv"); n = "mk";  break;
+   default: print("nothing");
+ }
+ print(n);
+
+ int number = 5;
+ switch(number){
+   case 5 :
+     print("mk");
+     continue here; // ÕÃÌ «–« Â–Â «·‘—ÿ ’ÕÌÕ —ÊÕ «ÿ»⁄ ‰›– «·«„— ÊÊÌ«ﬂ ‰›– «·«„— „«· Â«Ì «·Õ«·Â
+   here:
+   case 6:
+     print("yes ok");
+     break;
+ }
+*/
+
+//While
+/*
+bool run = true;
+int i = 0;
+
+while(run == true){ // or while(true){
+  print("Hello world $i");
+  if(i == 3)
+    continue;
+
+  if(i==5)
+    break;
+
+  if(i == 6)
+    run  = false;
+
+  else{
+    i++;
+  }
+}
+*/
+
+
+//assert
+
+  /*
+// debugging tool, is used for testing boolean conditions.So, if the condition is false, it will disrupt the execution of the program, and vice versa.
+
+//assert have no effect in production mode,it is used in development mode only.
+
+  /*print("MK");
+  assert(1 == 2);
+  print("YES");*/
+
+// assert enable use to executing(run) dart file by terminal.
+ // dart --enable-asserts filename.dart
+
+
+  assert((1 == 2), "Error");
+  print("MK");
+  //Failed assertion: line 302 pos 10: 'condition': is not true -> in normal
+  //Failed assertion: line 302 pos 10: 'condition': message -> with message
+*/
+
+
+//function
+
+  /*
+//return_type name(parameter){ statements return value;};
+//argument = parameter
+
+num addValue(num a , num b){ // with return and parameter.
+
+  return a + b;
+}
+print( addValue(4.5, 4));
+
+
+String printHelloWorld(){ // with return only.
+  return "Hello world";
+}
+print(printHelloWorld());
+
+
+void hiMorry_1(){ // no return , no parameter
+  print("MK1");
+}
+//or
+hiMorry_2(){
+  print("MK2");
+}
+hiMorry_1();
+hiMorry_2();
+
+
+  withoutDataType(a){ // without Data Type parameter
+    return a;
+  }
+
+
+// functions that contain just one expression, use The => expr syntax is a shorthand for { return expr; }.
+bool yesOrNo() => (1 == 1);
+print(yesOrNo());
+
+
+//optional named parameter
+//1) unless theyíre specifically marked as required.(„« ·„ Ì „  „ÌÌ“Â« ⁄·Ï ÊÃÂ «· ÕœÌœ ⁄·Ï √‰Â« „ÿ·Ê»….).
+//2)order of passing value of parameter is not necessary.
+//3)with annotate (:) , reverse named parameter.
+
+mk({b,a}){ // OK mr.MK
+  print(a);
+}
+mk(a: 10);
+
+
+mk2(int a,{int b,int c}){
+print(a);print(b);print(c);
+}
+
+mk2(10);//you should put this parameter
+mk2(10,c:5);
+mk2(10,b:6);
+mk2(10,c:9,b:3);
+
+//you can annotate them with @required? to indicate that the parameter is mandatory ó that users must provide a value for the parameter
+// @required -> no run-time error or compile-time error, it's just an attention for the programmer.
+
+  identification({@required String name, String title}){ // import 'package:meta/meta.dart.';
+    print("name:$name \n title: $title");
+   }
+   identification(title: "mk");
+
+
+//Optional positional parameters
+//1) unless theyíre specifically marked as required.(„« ·„ Ì „  „ÌÌ“Â« ⁄·Ï ÊÃÂ «· ÕœÌœ ⁄·Ï √‰Â« „ÿ·Ê»…
+//2)order of passing value of parameter is necessary, epically with data type.
+//3)without annotate (:) , reverse named parameter.
+
+mk3([int a,String b,int c]){
+  print(a);
+}
+mk3(4,"MK");
+
+
+//Default parameter values
+
+//mk4(int a, int b = 5){ }// compile_time error, should use with named and optional parameters.
+
+  mk4({int a, int b=6}){
+    print(a + b); // 5 + 6
+  }
+mk4(a: 5);
+
+
+// set, map , list as a parameter.
+  mk5 ({List<int> list, Map map = const {"name_M":"Mustafa", "age_M": 19}}){ // should add const, able to change without any errors, reverse the general concept of the const.
+    list.forEach((element) {print("element $element");});
+    map.forEach((key, value) {print(" $key -> $value");});
+  }
+
+   mk5(list:[4,9,6], map:{"name_A":"Ahmed" , "age_A" : 16, "new": true});
+*/
+
+
+
+//recursion
+
+  /*
+ // a function calls itself in which repeats itself several times, in order to return or compute the final output/ must has terminating conditions or base case, otherwise the loop will be infinity.
+ // recursion function is more efficient from iteration(for, while, do while) in which required the least amount of code to solve the same problem. But in  general done the same task.
+ //  recursion is the best option for some problems like sorting, searching, mathematical problems , etc.
+  // In general, it divides the task into sub task ( called divide and conquer).
+  int factorial (int n){
+
+    if(n>0)
+      return n * factorial(n-1); // this called (recursive call).
+    else
+      return 1;
+  }
+
+ int resultOfFactorial = factorial(5);
+ print(resultOfFactorial);
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+class Car{
+  num speed;
+  num acceleration;
+  String company;
+  String model;
+
+  setSpeed(num speed){
+    this.speed = speed;
+    print(speed);
+  }
+  setAcceleration(num acceleration){
+    this.acceleration = acceleration;
+    print(acceleration);
+  }
+  setCompany(String company){
+    this.company = company;
+    print(company);
+  }
+
+
+}

@@ -1,0 +1,160 @@
+
+
+//G:\MK WORLD\Android Studio\first_app\lib>dart --enable-asserts ObjectOrientedProgramming.dart
+
+void main() {
+
+  //Class -> contain(fields(instance variables), constructors, getters, setters, and instance  methods).
+  // to named class -> each first letter of the word should be capital also the first word, with no separators.
+
+  StudentInformation Mustafa = new StudentInformation("MK");
+  Mustafa..name = "Mustafa"..age = 19..average = 97.57..university = "University of Baghdad"..college = "Engineering"..department = "BME";
+  Mustafa.showInfo();
+  var Muqtada = new StudentInformation("MJ");
+  Muqtada..name = "Muqtada"..age = 19..average = 95.7..university = "University of Baghdad"..college = "Engineering"..department = "BME";
+  Muqtada.showInfo();
+
+  var test1 = StudentInformation("Ahmed"); // atty
+  test1.showName("Ahmed");
+  //var test2 = const StudentInformation("T");
+  test1?.name = "mk";// // If test is non-null, set its name value to "mk".(Use ?. instead of .).
+
+
+  StudentInformation con1 = new StudentInformation.Con1(1);
+  StudentInformation con2 = new StudentInformation.Con1(2);
+
+
+
+  //getter , setter , this concept
+  StudentInformation Sara = new StudentInformation.Sara("Sara",18,99,"Baghdad","Engineering","BME");
+
+  print(Sara.getName); // get sara
+
+  Sara.setName = "Sarora"; // sara -> Sarora (update) if set setName(String name) => this.name = name; , no update   set setName(String name) => name = name;
+
+  print(Sara.getName);//set setName(String name) => this.name = name -> return Sarora, set setName(String name) => name = name -> return sara.
+
+
+
+  //static
+  //use to the variables and methods that is  have same values for every where.
+  //We use static method and variables, when we want to use them in other classes without  any creating  of objects from their classes.
+  //there is no need to create object to set value for static variable or call static method.
+  //put the class name before static variable or static method to use them.
+  // static variables = class variables and can be accessed directly  in static method.
+  // static methods = class methods.
+
+
+  String result  = Static.calculateAreaOfCircle(7).toString();
+  print("The radius = " + result );
+
+ print( Static.PI); // we can change the value of static.
+ Static.PI = 3.14159; Static.EXP = 2.7;
+ print(Static.PI.toString() + " , " + Static.EXP.toString());
+
+ //Static.name1 = "Ali"; // we can't.
+  //Static.name2 = "Sajjad"; // we can't.
+
+
+  var object = Static();
+  //object.d = 10; we can
+ // object.c = 10; we can't
+
+
+}
+
+class Static{
+static double PI = 3.14; // 1) static with initialize
+static double EXP; // 2) static without initialize
+
+//simple deference between final, const
+static const String name1 = "Mustafa";
+ //const String address = "Mustafa"; -> we can't.
+  static final String name2 = "Ahmed";
+
+
+  int d = 2000; // default
+  final int c = 2000; // constant
+
+  static double calculateAreaOfCircle(int radius){
+  //print(d); can't use instance variable into static method.
+  return radius * radius * PI;
+}
+
+
+}
+
+
+class StudentInformation{
+  //fields(instance variables)
+  String name;
+  int age;
+  double average;
+  String university;
+  String college;
+  String department;
+
+
+  //constructors
+  // All classes have default constructors.
+  StudentInformation(String name){ //1) has the name of the class 2) don't has return-type.3) ÊõÊÓÏÚì æŞÊ ÇäÔÇÁ ÇáßÇÆä áĞáß ÊõÊÓÎÏã áÊåãíÏ ÇáŞíã use for set initial values to the object.
+    this.name = name;
+  }
+  //StudentInformation(this.name); the same code, only with this.variable.
+
+
+  //type of constructors
+  //1) Default constructor -> without any parameters(arguments).
+ /* StudentInformation(){
+    print("MK");
+  }
+*/
+  //2) Parameterized constructor -> with parameters(arguments).
+  /* StudentInformation(String name){
+    print(name);
+  }
+*/
+  //3) Named constructor -> allows to define multiple constructors.
+
+  StudentInformation.Con1(int one){
+    print(one);
+  }
+  StudentInformation.Con2(int two){
+    print(two);
+  }
+
+
+  // instance  methods
+  showInfo(){
+    print("Name: $name\nAge: $age\nAverage: $average\nUniversity: $university\nCollege: $college\nDepartment: $department");
+  }
+
+//this.variable -> refers to the current instance (object) of the class in a method or constructor.
+ showName(String name){
+  this.name = name;
+  print(name);
+  }
+
+ // getters, setters -> are used to initialize  and retrieve values of class fields respectively.
+ // All classes have default getters and setters associated with it.
+
+  StudentInformation.Sara(this.name,this.age,this.average,this.university,this.college,this.department);
+
+
+  set setName(String name) => this.name = name;
+  String get getName =>  name;
+  set setAge(int age) => this.age = age;
+  int get getAge =>  age;
+  set setAverage(double average) => this.average = average;
+  double get getAverage =>  average;
+  set setUniversity(String university) => this.university = university;
+  String get getUniversity =>  university;
+  set setCollege(String college) => this.college = college;
+  String get getCollege => college;
+  set setDepartment(String department) => this.department = department;
+  String get getDepartment =>  department;
+
+
+
+
+}
